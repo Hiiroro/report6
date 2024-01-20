@@ -1,5 +1,6 @@
 package jp.ac.uryukyu.ie.e235722;
 
+import java.util.Random;
 
 public class Board {
     int goal;
@@ -66,5 +67,33 @@ public class Board {
             }
         }
         return str_boad_player;
+    }
+
+    public void createEvent(){
+        int[] event_coas = this.coas_state;
+        Random rand = new Random();
+        // イベントを発生させるマスをスタート地点、ゴール地点を除いてランダムで取得
+        int event_mas_num;
+        while (true){
+            event_mas_num = rand.nextInt(this.goal - 2) + 1;
+            // イベントのないマスだった場合、イベントを作成
+            if (event_coas[event_mas_num]==0){
+                break;
+            }
+        }
+
+        // イベント発生マスの最大で進めるマスを取得
+        int event_max_step = (goal - event_mas_num) - 1;
+
+        // イベントの内容をランダムで取得し、イベントをコースに反映
+        int event_contents;
+        while (true){
+            event_contents = event_max_step - rand.nextInt(this.goal);
+            if(event_contents != 0){
+                break;
+            }
+        }
+        event_coas[event_mas_num] = event_contents;
+        this.coas_state = event_coas;
     }
 }
