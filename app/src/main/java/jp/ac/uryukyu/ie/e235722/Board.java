@@ -49,4 +49,22 @@ public class Board {
         }
         return str_boad;
     }
+
+    /**
+     * プレイヤー表示メソッド
+     * @param me 現在の位置
+     * @param koma コマ
+     * @param coas_state 盤面リスト
+     */
+    public String display_boad_player(int me, String koma, int[] coas_state){
+        String str_boad_player = "";
+        for (int i=0; i<coas_state.length; i++){
+            if (i == me){
+                str_boad_player = str_boad_player + (koma + "|");
+            } else {
+                str_boad_player = str_boad_player + display_mas(coas_state[i], i, coas_state.length, true)+ "|";
+            }
+        }
+        return str_boad_player;
+    }
 }
