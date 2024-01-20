@@ -52,6 +52,11 @@ public class Main {
                     
                         scanner.nextLine();
                     } else{
+                        try {
+                            Thread.sleep(2 * 1000);
+                            } catch (InterruptedException e) {
+                            e.printStackTrace();
+                            }
                         System.out.println("NPC:"+ player.name +"のターン！");
                     }
                     Random random = new Random();
