@@ -37,4 +37,16 @@ public class Board {
             }
         return mas_display;
     }
+
+    /**
+     * 盤面表示メソッド
+     * @param coas_state 盤面リスト
+     */
+    public String display_boad(int[] coas_state){
+        String str_boad = "";
+        for (int i=0; i<coas_state.length; i++){    
+            str_boad = str_boad + (display_mas(coas_state[i], i, coas_state.length, true)+ "|");
+        }
+        return str_boad;
+    }
 }
