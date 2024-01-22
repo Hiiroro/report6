@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args){
-        Board board = new Board(15);
+        Board board = new Board(10);
 
         // すごろくのイベント回数を設定
-        int event_num = 5;
+        int event_num = 2;
         for(int i=0; i<event_num; i++){
             board.createEvent();
         }
